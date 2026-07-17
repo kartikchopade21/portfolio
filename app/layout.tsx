@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Outfit, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { Providers } from './providers';
+import RedLineCursor from '@/components/red-line-cursor';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable} ${mono.variable} dark whitespace-normal`}>
       <body suppressHydrationWarning className="bg-slate-50 text-slate-900 dark:bg-black dark:text-slate-100 antialiased overflow-x-hidden">
+        <RedLineCursor />
         <Providers>
           {children}
         </Providers>
