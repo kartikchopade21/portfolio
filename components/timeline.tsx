@@ -10,7 +10,12 @@ const timelineEvents = [
     year: '2024',
     title: 'HotelKey - Nagpur',
     subtitle: 'Automation Engineer',
-    description: 'Building and maintaining end-to-end automation pipelines that eliminate manual intervention, reduce processing time, and scale operations for a global hospitality SaaS product. Global Exposure: Delivered onsite client consultation across UK (London, Edinburgh, Glasgow) and Dar es Salaam, Tanzania — leading data migration calls and translating technical insights into business decisions for enterprise clients.',
+    description: 'Building and maintaining end-to-end automation pipelines that eliminate manual intervention, reduce processing time, and scale operations for a global hospitality SaaS product.',
+    achievements: [
+      'Reduced enterprise client onboarding time from ~19 hours to under 1.3 hours via the FastAPI Automation Orchestrator, serving 700+ hotel properties globally.',
+      'Replaced an 8-hour manual Excel audit with a scripted reporting pipeline, saving 40+ engineering hours per month and enabling 15+ CI/CD environments to validate simultaneously for 4x QA throughput.',
+      'Led onsite SaaS implementations across Tanzania and the UK, earning direct client commendations for technical depth and responsiveness.'
+    ],
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop',
     tags: ['FastAPI', 'WebSockets', 'Python', 'Jenkins', 'API', 'Playwrigth', 'Pandas', 'Postman', 'SQL']
   },
@@ -96,9 +101,16 @@ function TimelineItem({ event, index }: { event: typeof timelineEvents[0], index
           <h3 className="text-4xl font-display font-medium text-slate-900 dark:text-white uppercase tracking-tight">{event.title}</h3>
           <p className="text-xl text-slate-500 dark:text-slate-400 font-medium">{event.subtitle}</p>
         </div>
-        <p className="text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-          {event.description}
-        </p>
+        <div className="text-slate-600 dark:text-slate-400 leading-relaxed font-light space-y-4">
+          <p>{event.description}</p>
+          {event.achievements && (
+            <ul className="list-disc pl-5 space-y-2 text-sm text-slate-500 dark:text-slate-400">
+              {event.achievements.map((achievement, i) => (
+                <li key={i}>{achievement}</li>
+              ))}
+            </ul>
+          )}
+        </div>
         <div className="flex flex-wrap gap-2">
           {event.tags.map(tag => (
             <span key={tag} className="text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
