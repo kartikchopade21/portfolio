@@ -45,9 +45,10 @@ export default function RedLineCursor() {
       ctx.moveTo(lastPos.current.x, lastPos.current.y);
       ctx.lineTo(e.clientX, e.clientY);
       ctx.strokeStyle = '#ff0000';
-      ctx.lineWidth = 2;
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
+      // Match the very thin, sharp line seen on lqve.jp
+      ctx.lineWidth = 1;
+      ctx.lineCap = 'butt';
+      ctx.lineJoin = 'miter';
       ctx.stroke();
 
       lastPos.current = { x: e.clientX, y: e.clientY };

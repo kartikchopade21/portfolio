@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import Navbar from '@/components/navbar';
 import Skills from '@/components/skills';
 import Projects from '@/components/projects';
+import ProjectsScroll from '@/components/projects-scroll';
 import Tools from '@/components/tools';
 import Contact from '@/components/contact';
 import Timeline from '@/components/timeline';
@@ -38,8 +39,8 @@ export default function Home() {
         <Skills />
       </section>
 
-      <section id="projects" className="py-24 px-6 md:px-12 lg:px-24 bg-slate-100/50 dark:bg-white/5 backdrop-blur-sm">
-        <Projects />
+      <section id="projects">
+        <ProjectsScroll />
       </section>
 
       <section id="tools" className="py-24 px-6 md:px-12 lg:px-24">
